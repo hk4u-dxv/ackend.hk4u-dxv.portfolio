@@ -1,10 +1,9 @@
-import { Router } from 'express';
-import { STATUS_MESSAGES } from '@utils/constants';
+import { Router, type IRouter } from 'express';
+import { projectRoutes } from './projects.routes';
 
-const router = Router();
+const router: IRouter = Router();
 
-router.get('/', (_req, res) => {
-  res.json({ message: STATUS_MESSAGES.API_ACTIVE });
-});
+// Rutas de proyectos
+router.use('/projects', projectRoutes);
 
 export default router; 

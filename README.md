@@ -1,15 +1,15 @@
 # Backend Portfolio - HK4U-DXV
 
-Backend API para el portafolio personal, construido con Node.js, Express y TypeScript.
+Backend API Rest para el portafolio personal, construido con Node.js, Express y TypeScript.
 
 ## 🛠 Tecnologías
 
-- Node.js (v21.7.0)
+- Node.js
 - TypeScript
 - Express.js
 - PostgreSQL (@vercel/postgres)
 - ESM Modules
-- Vercel (Futuro despliegue)
+- Vercel
 
 ## 📁 Estructura Base del Proyecto
 
@@ -21,18 +21,19 @@ backend.hk4u-dxv.portfolio/
 │   ├── db/             # Configuración y modelos de base de datos
 │   ├── middlewares/    # Middlewares de Express
 │   ├── routes/         # Definición de rutas
+│   ├── services/       # Servicios de la aplicación
 │   ├── utils/
 │   │     └── logger.ts
 │   │     └── constants.ts
 │   └── app.ts          # Punto de entrada de la aplicación
 ├── .env                # Variables de entorno
 ├── .env.example        
-├── .gitignore          
-├── .yarnrc.yml         
-├── package.json        
-├── tsconfig.json       
-├── vercel.json         
-└── yarn.lock           
+├── .gitignore
+├── .npmrc
+├── package.json
+├── tsconfig.json
+├── vercel.json
+└── pnpm-lock.yaml
 ```
 
 ## 🚀 Inicio Rápido
@@ -42,13 +43,12 @@ backend.hk4u-dxv.portfolio/
    ```bash
    git clone https://github.com/hk4u-dxv/backend.hk4u-dxv.portfolio.git
    cd backend.hk4u-dxv.portfolio
-
    ```
 
 2. **Instalar dependencias**
 
    ```bash
-   yarn install
+   pnpm install
    ```
 
 3. **Configurar variables de entorno**
@@ -60,22 +60,21 @@ backend.hk4u-dxv.portfolio/
 4. **Desarrollo local**
 
    ```bash
-   yarn dev
+   pnpm dev
    ```
 
 5. **Producción**
 
    ```bash
-   yarn build
-   yarn start
+   pnpm build
+   pnpm start
    ```
 
 ## 📝 Scripts Disponibles
 
-- `yarn dev`: Inicia el servidor en modo desarrollo con hot-reload
-- `yarn build`: Compila el proyecto para producción
-- `yarn start`: Inicia el servidor en modo producción
-- `yarn test`: Ejecuta los tests (por implementar)
+- `pnpm dev`: Inicia el servidor en modo desarrollo con hot-reload
+- `pnpm build`: Compila el proyecto para producción
+- `pnpm start`: Inicia el servidor en modo producción
 
 ## 🥷 Autor
 

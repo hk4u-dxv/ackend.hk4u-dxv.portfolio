@@ -1,4 +1,5 @@
-import express from "express";
+import './config/env'; 
+import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { formatLog, log } from "@utils/logger";
@@ -7,16 +8,16 @@ import { PORT, CORS_OPTIONS } from "@config/config";
 import routes from "@routes/index";
 import { errorHandler } from "@middlewares/errorHandler";
 
-const app = express();
+const app: Express = express();
 
 // Middlewares
 app.use(cors(CORS_OPTIONS));
 app.use(express.json());
 app.use(
   morgan(":method :url :status :response-time ms", {
-    skip: (req) => req.url === "/favicon.ico",
+    skip: (req: Request) => req.url === "/favicon.ico",
     stream: {
-      write: (message) => {
+      write: (message: string) => {
         const [method, url, status, time] = message.split(" ");
         console.log(
           formatLog(new Date().toLocaleTimeString(), "muted"),
@@ -33,13 +34,15 @@ app.use(
 );
 
 // Routes
-app.get("/", (req, res) => {
+app.get("/", (_req: Request, res: Response) => {
   res.json({
     message: "Backend API - HK4U-DXV Portfolio",
     version: process.env.npm_package_version,
     status: "active",
   });
 });
+
+// Prefix all routes with /api
 app.use("/api", routes);
 
 // Error Handler
@@ -48,7 +51,11 @@ app.use(errorHandler);
 // Start server
 const startServer = async () => {
   try {
-    await new Promise<void>((resolve) => app.listen(PORT, resolve));
+    await new Promise<void>((resolve) => {
+      app.listen(PORT, () => {
+        resolve();
+      });
+    });
 
     console.log(`
 ${formatLog(STATUS_MESSAGES.SERVER_STARTED, "heading")} ${formatLog(

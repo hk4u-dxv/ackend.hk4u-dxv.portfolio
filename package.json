@@ -8,8 +8,9 @@
     "start": "node dist/app.js",
     "dev": "cross-env NODE_ENV=development NODE_NO_WARNINGS=1 tsx watch src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && tsc-alias",
-    "vercel-build": "yarn build"
+    "build": "tsc && tsc-alias && pnpm fix-paths",
+    "fix-paths": "node scripts/fix-paths.js",
+    "vercel-build": "pnpm build"
   },
   "keywords": [],
   "author": "hk4u-dxv",
@@ -32,9 +33,7 @@
     "@types/node": "20.10.0",
     "@types/pg": "8.10.9",
     "cross-env": "7.0.3",
+    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.19.2"
-  },
-  "engines": {
-    "node": "20.x"
   }
 }

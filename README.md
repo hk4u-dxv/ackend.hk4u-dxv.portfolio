@@ -1,6 +1,6 @@
-# Backend Portfolio - HK4U-DXV
+# Backend Portfolio - HK4U-DXV (Estructura Base)
 
-Backend API Rest para el portafolio personal, construido con Node.js, Express y TypeScript.
+Backend API Rest para el portafolio personal, construido con Node.js, Express, TypeScript y PostgreSQL.
 
 ## 🛠 Tecnologías
 
@@ -15,10 +15,15 @@ Backend API Rest para el portafolio personal, construido con Node.js, Express y 
 
 ```bash
 backend.hk4u-dxv.portfolio/
+├── scripts/
+│   └── fix-paths.js    # Script para corregir las rutas de los módulos al compilar
 ├── src/
-│   ├── config/         # Configuraciones (database, server, cors, etc)
-│   ├── controllers/    # Controladores de rutas
-│   ├── db/             # Configuración y modelos de base de datos
+│   ├── config/
+│   │     └── config.ts
+│   │     └── database.ts
+│   │     └── env.ts
+│   ├── controllers/
+│   ├── db/
 │   ├── middlewares/    # Middlewares de Express
 │   ├── routes/         # Definición de rutas
 │   ├── services/       # Servicios de la aplicación
@@ -27,7 +32,7 @@ backend.hk4u-dxv.portfolio/
 │   │     └── constants.ts
 │   └── app.ts          # Punto de entrada de la aplicación
 ├── .env                # Variables de entorno
-├── .env.example        
+├── .env.example
 ├── .gitignore
 ├── .npmrc
 ├── package.json
@@ -72,7 +77,7 @@ backend.hk4u-dxv.portfolio/
 
 ## 📝 Scripts Disponibles
 
-- `pnpm dev`: Inicia el servidor en modo desarrollo con hot-reload
+- `pnpm dev`: Inicia el servidor en modo desarrollo
 - `pnpm build`: Compila el proyecto para producción
 - `pnpm start`: Inicia el servidor en modo producción
 
